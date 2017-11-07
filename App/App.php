@@ -1,14 +1,20 @@
 <?php
 namespace App;
 
+include "Views/HomeView.php";
+
 class App
 {
-    public function __construct() {
+    private $view = null;
+
+    public function __construct() 
+    {
+        $this->view = new Views\HomeView();
     }
 
     public function start()
     {
-        echo "<h1>Hello World</h1>";
+        $this->view->render();
     }
 }
 ?>
