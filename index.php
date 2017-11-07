@@ -22,7 +22,7 @@
           <ul class="navbar-nav mr-auto">
 
           </ul>
-          <ul class="navbar-nav my-2 my-md-0">
+          <ul id="userMenu" class="navbar-nav my-2 my-md-0">
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -42,15 +42,17 @@
         </div>
       </nav>
     
-    <?php
-    error_reporting (E_ALL);
-    ini_set ('display_errors', 'On');
-    include "App/App.php";
+      <div id="mainBody">
+        <?php
+          error_reporting (E_ALL);
+          ini_set ('display_errors', 'On');
+          include "App/App.php";
 
-    $app = new App\App();
+          $app = new App\App();
 
-    $app->start();
-    ?>
+          $app->start();
+        ?>
+      </div>
     
     </div>
 
