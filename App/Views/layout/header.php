@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    $_SESSION['username'] = "Fabian";
+    if(isset($_SESSION['username'])){
+    }else{
+        $path = $_SERVER['REQUEST_URI'];
+        $arr = split('/',$path);
+        if(strcmp(end($arr), "login.php") !== 0){
+          header("Location: ../login/login.php");
+        }        
+    }
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -33,9 +44,17 @@
                         <li class="nav-item">
                         <a class="nav-link" href="#">Profil</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                        </li>
+                        <?php
+                            if(isset($_SESSION['username']) == true){
+                                echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="#">Logout</a>';
+                                echo '</li>';
+                            }else{
+                                echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="#">Login</a>';
+                                echo '</li>';                            
+                            }
+                        ?>
 
                         <!-- Examples -->
                         <!--<li class="nav-item active">
