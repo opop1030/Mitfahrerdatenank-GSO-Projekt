@@ -19,6 +19,8 @@
     <!-- insert the CSS -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="assets/css/style.css">
 
     
@@ -42,7 +44,7 @@
                         <a class="nav-link" href="../fahrt/EigeneFahrten.php">Eigene Fahrten</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../profil/profil.php">Profil</a>
+                        <a class="nav-link" href="../profil/Profil.php">Profil</a>
                         </li>
                         <?php
                             if(isset($_SESSION['username']) == true){
@@ -55,20 +57,6 @@
                                 echo '</li>';                            
                             }
                         ?>
-
-                        <!-- Examples -->
-                        <!--<li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>-->
                     </ul>
                 </div>
         </nav>

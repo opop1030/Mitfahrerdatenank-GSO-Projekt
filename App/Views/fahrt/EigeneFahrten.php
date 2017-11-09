@@ -23,9 +23,11 @@
                     <th></th>
                 </tr>
             </thead>
-            <?php 
-                //Add Tablecontent here
-            ?>
+            <tbody>
+                <?php 
+                    //Add Tablecontent here
+                ?>
+            </tbody>
         </table>
     </div>
 </div>
@@ -43,9 +45,11 @@
                     <th></th>
                 </tr>
             </thead>
-            <?php 
-                //Add Tablecontent here
-            ?>
+            <tbody>
+                <?php 
+                    //Add Tablecontent here
+                ?>
+            </tbody>
         </table>
     </div>
 </div>
