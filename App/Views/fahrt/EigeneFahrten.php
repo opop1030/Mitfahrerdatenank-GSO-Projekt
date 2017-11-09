@@ -7,7 +7,7 @@
 <br>
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn btn-success" style="float: right;">Angebot erstellen</button>
+        <button onclick="window.location.href='CreateFahrt.php'" type="button" class="btn btn-success" style="float: right;">Angebot erstellen</button>
     </div>
 </div>
 <div class="row">
