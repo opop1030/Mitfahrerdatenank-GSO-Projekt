@@ -20,30 +20,38 @@ class Database
         }
         return $conn;
     }
-    static function query($query){
+    static function selectquery($query){
         $conn = Database::openConnection();
-        //$query =  "SELECT * FROM `Buchung`";
-        $result = mysqli_query($conn, $query);
+        $result = $conn->query($query);
         $rows = Database::resultToArray($result);
         //$row = $rows[$rowNr];
         //echo $row['idBuchung'];
-        $result->free();
         return $rows;
+    }
+    static function insertquery($query){
+        $conn = Database::openConnection();
+        if ($conn->query($query)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: <br>".$conn->error;
+        }
+        $conn->close();
     }
     static function resultToArray($result) {
         $rows = array();
         while($row = $result->fetch_assoc()) {
             $rows[] = $row;
+            //array_push($rows,$row);
         }
         return $rows;
     }
-    static function insertUser($vName, $nName, $Email, $Telefon, $Straße, $Postleitzahl, $Passwort){
-        $q = "INSERT INTO `benutzer`(`vName`, `nName`, `Email`, `Telefon`, `Straße`, `Postleitzahl`, `Passwort`) 
-        VALUES ($vName, $nName, $Email, $Telefon, $Straße, $Postleitzahl, $Passwort)";
+    static function insertUser($vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort){
+        $q = "INSERT INTO `benutzer`(`vName`, `nName`, `Email`, `Telefon`, `Strasse`, `Postleitzahl`, `Passwort`) 
+        VALUES ($vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort)";
         query($q);
     }    
-    static function updateUser($id, $vName, $nName, $Email, $Telefon, $Straße, $Postleitzahl, $Passwort){
-        $q = "UPDATE `benutzer` SET `vName`=$vName,`nName`=$nName,`Email`=$Email,`Telefon`=$Telefon,`Straße`=$Straße,`Postleitzahl`=$Postleitzahl,`Passwort`=$Passwort WHERE $id";
+    static function updateUser($id, $vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort){
+        $q = "UPDATE `benutzer` SET `vName`=$vName,`nName`=$nName,`Email`=$Email,`Telefon`=$Telefon,`Strasse`=$Strasse,`Postleitzahl`=$Postleitzahl,`Passwort`=$Passwort WHERE $id";
         query($q);
     }
     static function deleteUser($id){
@@ -86,12 +94,21 @@ class Database
     }
 }
 
-$rows = Database::query("INSERT INTO `benutzer`(`vName`) 
-VALUES (`Jannis`)");
-//$rows = Database::resultToArray($test);
-foreach($rows as $row){
-    echo implode(',', $row);
-}
-//$test = Database::query("SELECT * FROM `Buchung`",0);
-//echo $test['idBuchung'];
+/*Selectquery Example:
+
+    $db = new Database();
+    $q = "SELECT * FROM `Benutzer`";
+    //$q = "INSERT INTO `Benutzer`(vName, nName, Email, Telefon, Strasse, Postleitzahl, Passwort) VALUES ('Fabian_Test','Frieß_Test','fia53friess@gso-koeln.de','123456789','Teststr.','50607','root')";
+    $rows = $db->selectquery($q);
+    foreach($rows as &$value){
+        echo $value['idBenutzer'];
+    }
+*/
+/*Selectquery Example:
+
+    $db = new Database();
+    $q = "INSERT INTO `Benutzer`(vName, nName, Email, Telefon, Strasse, Postleitzahl, Passwort) VALUES ('Fabian_Test','Frieß_Test','fia53friess@gso-koeln.de','123456789','Teststr.','50607','root')";
+    $db->insertquery($q);
+
+*/
 ?>
