@@ -1,7 +1,7 @@
 <?php
     session_start();
     //$_SESSION['username'] = "Fabian";
-    if(isset($_SESSION['username'])){
+    if(isset($_SESSION['email'])){
     }else{
         $path = $_SERVER['REQUEST_URI'];
         $arr = split('/',$path);

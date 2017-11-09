@@ -46,9 +46,9 @@ class Database
         return $rows;
     }
     static function insertUser($vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort){
-        $q = "INSERT INTO `benutzer`(`vName`, `nName`, `Email`, `Telefon`, `Strasse`, `Postleitzahl`, `Passwort`) 
-        VALUES ($vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort)";
-        query($q);
+        $q = "INSERT INTO `Benutzer`(vName, nName, Email, Telefon, Strasse, Postleitzahl, Passwort) 
+        VALUES ('$vName', '$nName', '$Email', '$Telefon', '$Strasse', '$Postleitzahl', '$Passwort')";
+        Database::insertquery($q);
     }    
     static function updateUser($id, $vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort){
         $q = "UPDATE `benutzer` SET `vName`=$vName,`nName`=$nName,`Email`=$Email,`Telefon`=$Telefon,`Strasse`=$Strasse,`Postleitzahl`=$Postleitzahl,`Passwort`=$Passwort WHERE $id";
@@ -98,13 +98,12 @@ class Database
 
     $db = new Database();
     $q = "SELECT * FROM `Benutzer`";
-    //$q = "INSERT INTO `Benutzer`(vName, nName, Email, Telefon, Strasse, Postleitzahl, Passwort) VALUES ('Fabian_Test','Frieß_Test','fia53friess@gso-koeln.de','123456789','Teststr.','50607','root')";
     $rows = $db->selectquery($q);
     foreach($rows as &$value){
         echo $value['idBenutzer'];
     }
 */
-/*Selectquery Example:
+/*Insertquery Example:
 
     $db = new Database();
     $q = "INSERT INTO `Benutzer`(vName, nName, Email, Telefon, Strasse, Postleitzahl, Passwort) VALUES ('Fabian_Test','Frieß_Test','fia53friess@gso-koeln.de','123456789','Teststr.','50607','root')";
