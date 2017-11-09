@@ -20,20 +20,29 @@ class Database
         }
         return $conn;
     }
-    static function query($query){
+    static function selectquery($query){
         $conn = Database::openConnection();
-        //$query =  "SELECT * FROM `Buchung`";
-        $result = mysqli_query($conn, $query);
+        $result = $conn->query($query);
+        //$test = Database::query("select * from Benutzer");
         $rows = Database::resultToArray($result);
-        //$row = $rows[$rowNr];
-        //echo $row['idBuchung'];
-        $result->free();
         return $rows;
     }
+
+    static function insertquery($query){
+        $conn = Database::openConnection();
+        if ($conn->query($query)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: <br>".$conn->error;
+        }
+        $conn->close();
+    }
+
     static function resultToArray($result) {
         $rows = array();
         while($row = $result->fetch_assoc()) {
             $rows[] = $row;
+            //array_push($rows,$row);
         }
         return $rows;
     }
@@ -86,12 +95,37 @@ class Database
     }
 }
 
-$rows = Database::query("INSERT INTO `benutzer`(`vName`) 
-VALUES (`Jannis`)");
-//$rows = Database::resultToArray($test);
-foreach($rows as $row){
-    echo implode(',', $row);
+//$conn = Database::openConnection();
+//$test = $conn->query("select * from Benutzer");
+
+//Database::insertquery("INSERT INTO Benutzer(vName) VALUES ('Jannis')");
+
+/*if ($conn->query("INSERT INTO Benutzer(vName) VALUES ('Jannis')")) {
+    echo "New record created successfully";
+} else {
+    echo "Error: <br>".$conn->error;
 }
-//$test = Database::query("SELECT * FROM `Buchung`",0);
-//echo $test['idBuchung'];
+$conn->close();*/
+//$rows = Database::query("INSERT INTO `benutzer`(`vName`) 
+//VALUES (`Jannis`)");
+//$rows = Database::resultToArray($test);
+//foreach($rows as $row){
+//    echo implode(',', $row);
+//}
+
+/*if ($test->num_rows > 0) {
+    // output data of each row
+    $rows = array();
+    while($row = $test->fetch_assoc()) {
+        $rows[] = $row;
+        //array_push($rows,$row);
+    }
+    foreach($rows as $row){
+        echo implode(',', $row);
+    }
+
+    
+} else {
+    echo "0 results";
+}*/
 ?>
