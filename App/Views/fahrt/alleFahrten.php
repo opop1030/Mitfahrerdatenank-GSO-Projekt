@@ -1,4 +1,22 @@
 <?php include("../layout/header.php")?>
+<?php 
+    //use "App/Database/Database";
+    $rows = Database::selectquery("select * from Fahrt");
+    //foreach($rows as $row){
+    //    echo implode(',', $row);
+    //}
+
+
+    foreach($rows as $row){
+        echo $row;
+        
+        foreach($row as $test){
+            echo $test."<br>";
+        }
+    }
+?>
+
+
 <div class="row">
     <div class="col-md-12">
         <h1>Alle Fahrten</h1>

@@ -9,6 +9,7 @@
 <div class="row">
     <div class="col-md-6">
         <form id="CreateFahrt" method="post" action="EditFahrt.php">
+            <input type="hidden" class="form-control" name="id" value="0">
             <div class="form-group row">
                 <div class="col-sm-4"><label for="inputStartadresse" class="col-sm-2 col-form-label">Startadresse</label></div>
                 <div class="col-sm-8">

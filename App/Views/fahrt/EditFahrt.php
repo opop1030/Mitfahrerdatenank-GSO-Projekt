@@ -10,6 +10,25 @@ Version: V.0.5
 
 
 <?php
+    if(($_POST['id']) == 0){
+        $query = "insert into Fahrt (Plaetze,StartZeit,AnkunftZeit,StartAdresse,ZielAdresse,Bemerkung)
+        values (
+        ".$_POST['inputPlaetze'].",
+        '".$_POST['inputStartzeit']."',
+        '".$_POST['inputAnkunftszeit']."',
+        '".$_POST['inputStartadresse']."',
+        '".$_POST['inputZieladresse']."',
+        '".$_POST['inputBemerkung']."'";
+
+        echo "Bitte sei brav".$query;
+
+        $insertedID = Database::insertquery($query);
+        $_POST['id'] = $insertedID;
+
+        echo "Das ist hoffentlich eine tolle tahl".$insertedID;
+    }
+    
+
     //Speichere die Postdaten in die Datenbank
     //$_POST['inputStartadresse']
     //$_POST['inputZieladresse']
@@ -28,6 +47,12 @@ Version: V.0.5
 <div class="row">
     <div class="col-md-6">
         <form id="EditFahrt" method="Post">
+            <?php 
+                $data = $_POST['id'];
+                echo '<input type="hidden" class="form-control" name="id" value="'.$data.'">'
+            ?>
+            
+
             <div class="form-group row">
                 <div class="col-sm-4"><label for="inputStartadresse" class="col-sm-2 col-form-label">Startadresse</label></div>
                 <div class="col-sm-8">
