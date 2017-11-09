@@ -39,7 +39,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%">
-                <a class="navbar-brand" href="#">Mitfahrerdatenbank</a>
+                <a class="navbar-brand" href="../fahrt/AlleFahrten.php">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
