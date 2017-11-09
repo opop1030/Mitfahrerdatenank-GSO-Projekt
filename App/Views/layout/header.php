@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['username'] = "Fabian";
+    //$_SESSION['username'] = "Fabian";
     if(isset($_SESSION['username'])){
     }else{
         $path = $_SERVER['REQUEST_URI'];

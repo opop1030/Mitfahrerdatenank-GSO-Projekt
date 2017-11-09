@@ -31,7 +31,7 @@
 
     <div class="col-md-6">
         <h3>Registrieren</h3>
-        <form id="register">
+        <form id="register" action="register.php" method="post">
             <div class="form-group row">
                 <div class="col-sm-4"><label for="inputBenutzer" class="col-sm-2 col-form-label">Benutzer</label></div>
                 <div class="col-sm-8">
