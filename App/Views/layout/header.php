@@ -25,13 +25,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                        <a class="nav-link" href="../Fahrt/AlleFahrten.php">Alle Fahrten</a>
+                        <a class="nav-link" href="../fahrt/AlleFahrten.php">Alle Fahrten</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../Fahrt/EigeneFahrten.php">Eigene Fahrten</a>
+                        <a class="nav-link" href="../fahrt/EigeneFahrten.php">Eigene Fahrten</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Profil</a>
+                        <a class="nav-link" href="../profil/profil.php">Profil</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="#">Logout</a>
