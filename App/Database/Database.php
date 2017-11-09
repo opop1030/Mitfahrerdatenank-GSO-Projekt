@@ -48,14 +48,14 @@ class Database
     static function insertUser($vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort){
         $q = "INSERT INTO `Benutzer`(vName, nName, Email, Telefon, Strasse, Postleitzahl, Passwort) 
         VALUES ('$vName', '$nName', '$Email', '$Telefon', '$Strasse', '$Postleitzahl', '$Passwort')";
-        Database::insertquery($q);
+        Database::insertDatabase::insertquery($q);
     }    
     static function updateUser($id, $vName, $nName, $Email, $Telefon, $Strasse, $Postleitzahl, $Passwort){
-        $q = "UPDATE `benutzer` SET `vName`=$vName,`nName`=$nName,`Email`=$Email,`Telefon`=$Telefon,`Strasse`=$Strasse,`Postleitzahl`=$Postleitzahl,`Passwort`=$Passwort WHERE $id";
-        query($q);
+        $q = "UPDATE `Benutzer` SET vName='$vName',nName='$nName',Email='$Email',Telefon='$Telefon',Strasse='$Strasse',Postleitzahl='$Postleitzahl',Passwort='$Passwort' WHERE $id";
+        Database::insertDatabase::insertquery($q);
     }
     static function deleteUser($id){
-        $q = "DELETE FROM `benutzer` WHERE $id";
+        $q = "DELETE FROM `Benutzer` WHERE $id";
         if(query($q)){
             return true;
         }else{
@@ -63,16 +63,16 @@ class Database
         }
     }
     static function insertBooking($Fahrt_idFahrt, $Benutzer_idBenutzer, $Start_Ziel_Adresse, $Ist_Anbieter, $Bemerkung){
-        $q = "INSERT INTO `buchung`(`Fahrt_idFahrt`, `Benutzer_idBenutzer`, `Start_Ziel_Adresse`, `Ist_Anbieter`, `Bemerkung`) 
+        $q = "INSERT INTO `Buchung`(`Fahrt_idFahrt`, `Benutzer_idBenutzer`, `Start_Ziel_Adresse`, `Ist_Anbieter`, `Bemerkung`) 
         VALUES ($Fahrt_idFahrt, $Benutzer_idBenutzer, $Start_Ziel_Adresse, $Ist_Anbieter, $Bemerkung)";
-        query(q);
+        Database::insertquery($q);
     }        
     static function updateBooking($id,$Fahrt_idFahrt, $Benutzer_idBenutzer, $Start_Ziel_Adresse, $Ist_Anbieter, $Bemerkung){
-        $q = "UPDATE `buchung` SET `Fahrt_idFahrt`=$Fahrt_idFahrt,`Benutzer_idBenutzer`=$Benutzer_idBenutzer,`Start_Ziel_Adresse`=$Start_Ziel_Adresse,`Ist_Anbieter`=$Ist_Anbieter,`Bemerkung`=$Bemerkung WHERE $id";
-        query($q);
+        $q = "UPDATE `Buchung` SET `Fahrt_idFahrt`=$Fahrt_idFahrt,`Benutzer_idBenutzer`=$Benutzer_idBenutzer,`Start_Ziel_Adresse`=$Start_Ziel_Adresse,`Ist_Anbieter`=$Ist_Anbieter,`Bemerkung`=$Bemerkung WHERE $id";
+        Database::insertquery($q);
     }
     static function deleteBooking($id){
-        $q = "DELETE FROM `buchung` WHERE idBuchung = $id";
+        $q = "DELETE FROM `Buchung` WHERE idBuchung = $id";
         if(query($q)){
             return true;
         }else{
@@ -80,17 +80,17 @@ class Database
         }
     }
     static function insertTransfer($Plaetze, $Zeit, $AnkunftZeit, $StartAdresse, $ZielAdresse, $Bemerkung){
-        $q = "INSERT INTO `Fahrt`(`Plaetze`, `StartZeit`, `AnkunftZeit`, `StartAdresse`, `ZielAdresse`, `Bemerkung`) 
-        VALUES ($Plaetze, $Zeit, $AnkunftZeit, $StartAdresse, $ZielAdresse, $Bemerkung)";
-        query($q);
+        $q = "INSERT INTO `Fahrt`(Plaetze, StartZeit, AnkunftZeit, StartAdresse, ZielAdresse, Bemerkung) 
+        VALUES ('$Plaetze', '$Zeit', '$AnkunftZeit', '$StartAdresse', '$ZielAdresse', '$Bemerkung')";
+        Database::insertquery($q);
     }    
     static function updateTransfer($id, $Plaetze, $Zeit, $AnkunftZeit, $StartAdresse, $ZielAdresse, $Bemerkung){
-        $q = "UPDATE `Fahrt` SET `Plaetze`=$Plaetze,`StartZeit`=$StartZeit,`AnkunftZeit`=$AnkunftZeit,`StartAdresse`=$StartAdresse,`ZielAdresse`=$ZielAdresse,`Bemerkung`=$Bemerkung WHERE $id";
-        query($q);
+        $q = "UPDATE `Fahrt` SET Plaetze='$Plaetze',StartZeit='$StartZeit',AnkunftZeit='$AnkunftZeit',StartAdresse='$StartAdresse',ZielAdresse='$ZielAdresse',Bemerkung='$Bemerkung' WHERE $id";
+        Database::insertquery($q);
     }
     static function deleteTransfer($id){
-        $q = "DELETE FROM `fahrt` WHERE $id";
-        query($q);
+        $q = "DELETE FROM `Fahrt` WHERE $id";
+        Database::insertquery($q);
     }
 }
 
@@ -98,7 +98,7 @@ class Database
 
     $db = new Database();
     $q = "SELECT * FROM `Benutzer`";
-    $rows = $db->selectquery($q);
+    $rows = $db->selectDatabase::insertquery($q);
     foreach($rows as &$value){
         echo $value['idBenutzer'];
     }
@@ -107,7 +107,7 @@ class Database
 
     $db = new Database();
     $q = "INSERT INTO `Benutzer`(vName, nName, Email, Telefon, Strasse, Postleitzahl, Passwort) VALUES ('Fabian_Test','Frieß_Test','fia53friess@gso-koeln.de','123456789','Teststr.','50607','root')";
-    $db->insertquery($q);
+    $db->insertDatabase::insertquery($q);
 
 */
 ?>

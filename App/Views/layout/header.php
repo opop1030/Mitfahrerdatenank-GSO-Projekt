@@ -9,9 +9,7 @@
           header("Location: ../login/login.php");
         }        
     }
-?>
 
-<?php
     include("../../Database/Database.php")
 ?>
 
@@ -55,14 +53,14 @@
                         <a class="nav-link" href="../profil/Profil.php">Profil</a>
                         </li>
                         <?php
-                            if(isset($_SESSION['username']) == true){
+                            if(isset($_SESSION['email']) == true){
                                 echo '<li class="nav-item">';
-                                echo '<a class="nav-link" href="#">Logout</a>';
+                                echo '<a class="nav-link" href="../logout/logout.php">Logout</a>';
                                 echo '</li>';
                             }else{
-                                echo '<li class="nav-item">';
-                                echo '<a class="nav-link" href="#">Login</a>';
-                                echo '</li>';                            
+                                //echo '<li class="nav-item">';
+                                //echo '<a class="nav-link" href="#">Login</a>';
+                                //echo '</li>';                            
                             }
                         ?>
                     </ul>

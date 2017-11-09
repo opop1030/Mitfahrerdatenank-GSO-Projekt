@@ -8,10 +8,12 @@ if($_POST["password1"]===$_POST["password2"]){
     Database::insertUser($_POST["vName"], $_POST["nName"],$_POST["email"], $_POST["telefon"], $_POST["street"], $_POST["postcode"], $_POST["password1"]);    
     session_start();
     $_SESSION['email'] = $_POST["email"];
-    header("Location: ../index.php");            
+    //echo $_SESSION['email'];
+    header("Location: ../fahrt/alleFahrten.php");            
 }
 else{
-    header("Location: ../login/login.php");    
+    header("Location: ../login/login.php");
+    //echo $_SESSION['email'];    
 }
     
 
