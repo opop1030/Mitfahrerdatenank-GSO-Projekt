@@ -32,11 +32,14 @@
         //Erstelle Buchung
         $buchungQuery = "insert into Buchung (Fahrt_idFahrt,Benutzer_idBenutzer,Ist_Anbieter)
         values(".$insertedID.",".$_SESSION['userid'].",true)
-        ";
+        ";  
         Database::insertquery($buchungQuery);
 
         $_POST['id'] = $insertedID;
-        header("Location: EigeneFahrten.php");
+        //header("Location: EigeneFahrten.php");
+        echo "<script>";      
+        echo "redirect('EigeneFahrten.php')";
+        echo "</script>";
     }else{
         //Führe ein Update aus.
         $query = "update Fahrt
@@ -52,7 +55,10 @@
         Database::insertquery($query);
         
         if (isset($_POST['GetFromDatabase']) == true){
-            header("Location: EigeneFahrten.php");
+            //header("Location: EigeneFahrten.php");
+            echo "<script>";      
+            echo "redirect('EigeneFahrten.php')";
+            echo "</script>";
         }
     }
 ?>
