@@ -1,4 +1,4 @@
-<?php
+<?php   
     session_start();
     //$_SESSION['username'] = "Fabian";
     if(isset($_SESSION['userid'])){

@@ -1,14 +1,4 @@
-<!--
-Name: EditFahrt
-Datum: 09.11.2017
-Version: V.0.5
-Änderungshistorie:
--->
-
-
 <?php include("../layout/header.php")?>
-
-
 <?php
     //Hole den Datensatz aus der Datenbank, wenn dies gefordert ist.
     if (isset($_POST['GetFromDatabase']) == false){
@@ -23,7 +13,6 @@ Version: V.0.5
         $_POST['inputZieladresse'] = $result[0]["ZielAdresse"];
         $_POST['inputBemerkung'] = $result[0]["Bemerkung"];
     }
-
 
     if(($_POST['id']) == 0){
         //Erstelle Fahrt

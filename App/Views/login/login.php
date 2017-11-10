@@ -12,7 +12,7 @@
             <div class="form-group row">
                 <div class="col-sm-4"><label for="inputBenutzer" class="col-sm-2 col-form-label">Email</label></div>
                 <div class="col-sm-8">
-                <input type="text" class="form-control" name="inputBenutzer" placeholder="Email" required>
+                <input type="email" class="form-control" name="inputBenutzer" placeholder="Email" required>
                 </div>
             </div>
             <div class="form-group row">
@@ -35,7 +35,7 @@
             <div class="form-group row">
                 <div class="col-sm-4"><label for="inputBenutzer" class="col-sm-2 col-form-label">Email*</label></div>
                 <div class="col-sm-8">
-                <input type="text" class="form-control" name="inputBenutzer" placeholder="Email" required>
+                <input type="email" class="form-control" name="inputBenutzer" placeholder="Email" required>
                 </div>
             </div>
 

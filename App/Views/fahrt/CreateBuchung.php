@@ -10,7 +10,7 @@
         ".$_SESSION['userid']."
     )
     ";
-    echo Database::insertquery($query);
+    Database::insertquery($query);
     $query = "SELECT Plaetze FROM Fahrt WHERE idFahrt = ".$_POST['fahrtid'];
     $result = Database::selectquery($query);
     //var_dump( $plaetze);

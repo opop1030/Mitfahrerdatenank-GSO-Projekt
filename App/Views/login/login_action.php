@@ -12,7 +12,7 @@
         session_start();
         $_SESSION['userid'] = $user[0]["idBenutzer"];
     }else{
-        echo '<script type="text/javascript">alert("Falsche Email oder Benutzername")</script>';
+        //echo '<script type="text/javascript">alert("Falsche Email oder Benutzername")</script>';
     }
 
     header("Location: ../fahrt/alleFahrten.php")
