@@ -37,6 +37,7 @@
                     <th>Telefon</th>
                     <th>Straße</th>
                     <th>Postleitzahl</th>
+                    <th>Löschen</th>
                     
                 </tr>
             </thead>
@@ -52,6 +53,12 @@
                         echo "<td>".$row['Telefon']."</td>";
                         echo "<td>".$row['Strasse']."</td>";
                         echo "<td>".$row['Postleitzahl']."</td>";
+                        //DeleteButton
+                        echo "<td><form action='RemoveBuchung.php' method='post'>";
+                        echo '<input type="hidden" name="fahrtid" value="'.$_POST['fahrtid'].'">';
+                        echo '<input type="hidden" name="idBuchung" value="'.$row["idBuchung"].'">';                        
+                        echo '<button type="submit" class="btn btn-danger">Löschen</button>';
+                        echo "</form></td>";
                         echo "</tr>";
                     }
                 ?>
