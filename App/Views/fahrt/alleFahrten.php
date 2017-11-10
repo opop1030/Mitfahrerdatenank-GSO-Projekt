@@ -30,7 +30,7 @@
             </thead>
             <tbody>
             <?php
-                $query = "SELECT * FROM Fahrt f INNER JOIN Buchung b ON f.idFahrt=b.Fahrt_idFahrt where b.Ist_Anbieter = true and not b.Benutzer_idBenutzer = ".$_SESSION["userid"];
+                $query = "SELECT * FROM Fahrt f INNER JOIN Buchung b ON f.idFahrt=b.Fahrt_idFahrt where f.Plaetze >0 AND b.Ist_Anbieter = true and not b.Benutzer_idBenutzer = ".$_SESSION["userid"];
                 $rows = Database::selectquery($query);
 
                 foreach($rows as $row){

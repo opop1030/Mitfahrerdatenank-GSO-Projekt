@@ -97,6 +97,7 @@
                         //DeleteButton
                         echo "<td><form action='RemoveBuchung.php' method='post'>";
                         echo '<input type="hidden" name="fahrtid" value="'.$row["idFahrt"].'">';
+                        echo '<input type="hidden" name="idBuchung" value="'.$row["idBuchung"].'">';                        
                         echo '<button type="submit" class="btn btn-danger">Löschen</button>';
                         echo "</form></td>";
                         
